@@ -21,11 +21,49 @@ public class LoginPO {
 			    .pollingEvery(100, TimeUnit.MILLISECONDS);
 	}
 	
-	@FindBy(id = "")
-	private WebElement campoUsuario;
-	
 	private void esperarElemento(WebElement elemento) {
 		fluentWait.until(ExpectedConditions.visibilityOf(elemento));
+	}
+	
+	@FindBy(id= "userInput")
+	private WebElement ingresarNombreUsuario;
+	
+	@FindBy(id= "passwordInput")
+	private WebElement ingresarContraseña;
+	
+	@FindBy(id= "btnIngresar")
+	private WebElement botonIngresar;
+	
+	@FindBy(id= "errorMessageLogin")
+	private WebElement mensaje;
+	
+	@FindBy (id="lblTitleConsultAfiliado")
+	protected WebElement getTitulo;
+	
+	public void ingresar(String nombreUsuario,String contraseña){
+		ingresarNombreUsuario.sendKeys(nombreUsuario);
+		ingresarContraseña.sendKeys(contraseña);
+		botonIngresar.click();
+	}
+	
+	public void ingresarUsuario(String nombreUsuario){
+		ingresarNombreUsuario.sendKeys(nombreUsuario);
+	}
+	
+	public void ingresarContrasena(String contrasena){
+		ingresarContraseña.sendKeys(contrasena);
+	}
+	
+	public void obtenerMensajeErrorLogin(){
+		botonIngresar.click();
+	}
+	
+	public String obtenerMensaje(){
+		return mensaje.getText();
+	}
+
+	public String obtenerTituloHome() {
+		return getTitulo.getText();
 	}
 
 }
