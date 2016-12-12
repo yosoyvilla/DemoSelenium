@@ -3,6 +3,8 @@ package org.seleniumdemo.po;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
@@ -17,5 +19,8 @@ public class LoginPO {
 			    .withTimeout(60, TimeUnit.SECONDS)
 			    .pollingEvery(100, TimeUnit.MILLISECONDS);
 	}
+	
+	@FindBy(id = "")
+	private WebElement campoUsuario;
 
 }
