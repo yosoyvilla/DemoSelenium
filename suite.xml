@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Demo" thread-count="1">
+	<test name="SeleniumDemo">
+		<parameter name="browser" value="chrome" />
+		<parameter name="url" value="http://eter:9002/" />
+		<classes>	
+			<class name="org.mutualser.test.LoginTest" />	
+		</classes>
+	</test>
+</suite> 
